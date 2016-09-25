@@ -212,8 +212,8 @@ public class LTLExp {
 				//display text related to destination state
 			//	result += "\n System.out.println(\""+matching+" "+re+" REACHED STATE: "+t.getDestination()+"\");";
 				
-				//fail on a final state
-				if (!pa.getFinalStatesF().contains(pr.getNextState()))
+				//fail on bad states
+				if (pa.getBadStates().contains(pr.getNextState()))
 					result += "\n Verification.fail(\" FAILED ON LTL "+matching+" "+ltl+"\");";
 				
 				result += "}\n";
